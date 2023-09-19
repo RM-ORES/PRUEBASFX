@@ -4,7 +4,8 @@ public enum Pantallas {
 
 
     LOGIN ("/fxml/login.fxml"),
-    BIENVENIDA ("/fxml/bienvenida.fxml");
+    BIENVENIDA ("/fxml/bienvenida.fxml"),
+    LISTADO("/fxml/listado.fxml");
 
 
     private String ruta;

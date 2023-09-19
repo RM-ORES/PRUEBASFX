@@ -124,6 +124,12 @@ public class PrincipalController {
         menuPrincipal.setVisible(true);
     }
 
+    public void onLogout(){
+        this.usuario = null;
+        cargarPantalla(Pantallas.LOGIN);
+        menuPrincipal.setVisible(false);
+    }
+
     public void help(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Ayuda");
@@ -150,20 +156,20 @@ public class PrincipalController {
 
 
     @FXML
-    private void menuClick(ActionEvent actionEvent) {
+    private void menuClick(ActionEvent actionEvent) { //mismo metodo para todos los botones, lee el id y redirige
         switch (((MenuItem)actionEvent.getSource()).getId())
         {
             case "menuItemPantalla1":
             {}; //cargarPantalla(Pantallas.PANTALLA1);
                 break;
             case "menuItemListado":
-            {}; //cargarPantalla(Pantallas.LISTADO);
+            cargarPantalla(Pantallas.LISTADO);
                 break;
             case "menuItemPantallaNueva":
             {}; //cargarPantalla(Pantallas.PANTALLANUEVA);
                 break;
             case "menuItemLogout":
-            {}; //logout();
+            onLogout();
                 break;
         }
 
