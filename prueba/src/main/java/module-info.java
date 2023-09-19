@@ -25,6 +25,8 @@ module javafx {
     exports ui.pantallas.login;
     exports ui.pantallas.bienvenida;
     exports ui.pantallas.listado;
+    exports domain.usecases.cosas;
+    exports dao.cosas;
 
 //    opens ui.pantallas.principal to javafx.fxml;
 
@@ -33,8 +35,10 @@ module javafx {
     opens ui.pantallas.login to javafx.fxml;
     opens ui.pantallas.bienvenida to javafx.fxml;
     opens ui.pantallas.listado to javafx.fxml;
+    opens domain.modelo;
     opens ui.main;
     opens css;
     opens fxml;
+    opens domain.usecases.cosas;
 
 }
