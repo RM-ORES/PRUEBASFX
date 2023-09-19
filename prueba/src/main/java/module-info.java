@@ -22,12 +22,15 @@ module javafx {
     exports ui.main to javafx.graphics;
     exports ui.pantallas.principal;
     exports ui.pantallas.common;
-
+    exports ui.pantallas.login;
+    exports ui.pantallas.bienvenida;
 
 //    opens ui.pantallas.principal to javafx.fxml;
 
 
     opens ui.pantallas.principal;
+    opens ui.pantallas.login to javafx.fxml;
+    opens ui.pantallas.bienvenida to javafx.fxml;
     opens ui.main;
     opens css;
     opens fxml;

@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javafx.stage.WindowEvent;
+import lombok.Getter;
 import ui.pantallas.common.BasePantallaController;
 import ui.pantallas.common.Pantallas;
 
@@ -38,6 +40,9 @@ public class PrincipalController {
 
 
     private final Alert alert;
+
+    @Getter
+    private String usuario;
 
     private Pane pantallaBienvenida;
 
@@ -105,14 +110,19 @@ public class PrincipalController {
         root.setCenter(pantallaNueva);
     }
 
-
-    public void initialize() {
+    @FXML
+    private void initialize() {
         menuPrincipal.setVisible(false);
-        //cargarPantalla(Pantallas.LISTADO);
+        cargarPantalla(Pantallas.LOGIN);
 
     }
 
-
+    /* Al pulsar el botón de login este metodo lo guarda en memoria para que las otras pantallas puedan llamarlo con un getter */
+    public void onLogin(String usuario){
+        this.usuario = usuario;
+        cargarPantalla(Pantallas.BIENVENIDA);
+        menuPrincipal.setVisible(true);
+    }
 
     public void help(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -120,6 +130,11 @@ public class PrincipalController {
         alert.setHeaderText("Ayuda");
         alert.setContentText("Este es un mensaje de ayuda");
         alert.showAndWait();
+    }
+    public void exit(ActionEvent actionEvent) {
+//        primaryStage.close();
+//        Platform.exit();
+        primaryStage.fireEvent(new WindowEvent(primaryStage, WindowEvent.WINDOW_CLOSE_REQUEST));
     }
 
     @FXML
@@ -139,13 +154,13 @@ public class PrincipalController {
         switch (((MenuItem)actionEvent.getSource()).getId())
         {
             case "menuItemPantalla1":
-                cargarPantalla(Pantallas.PANTALLA1);
+            {}; //cargarPantalla(Pantallas.PANTALLA1);
                 break;
             case "menuItemListado":
-                cargarPantalla(Pantallas.LISTADO);
+            {}; //cargarPantalla(Pantallas.LISTADO);
                 break;
             case "menuItemPantallaNueva":
-                cargarPantalla(Pantallas.PANTALLANUEVA);
+            {}; //cargarPantalla(Pantallas.PANTALLANUEVA);
                 break;
             case "menuItemLogout":
             {}; //logout();
